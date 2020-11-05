@@ -1,0 +1,26 @@
+Feature: Banking
+As a user
+I want to make an ATM Transaction
+ 
+@requirementKey=AP-RQ-1
+@testEntityKey=AP-TC-28
+@testEntityKey=AP-TC-32
+@testEntityKey=AP-TC-37
+Scenario: Withdraw less money
+Given I have $1200 on my account
+When I withdraw $600
+Then I get $600 from the ATM
+ 
+@requirementKey=AP-RQ-1
+@testEntityKey=AP-TC-27
+Scenario: Withdraw more money
+Given I have $150 on my account
+When I withdraw $300
+Then I get $0 from the ATM
+ 
+@requirementKey=AP-RQ-1
+@testEntityKey=AP-TC-26
+Scenario Outline: Withdraw money from the account
+Given I have $<balance> on my account
+When I withdraw $<withdraw>
+Then I get $<received> from the ATM
